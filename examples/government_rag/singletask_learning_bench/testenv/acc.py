@@ -82,7 +82,11 @@ def acc_model(y_true, y_pred):
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
     
-    with open("accuracy_results_model.json", "w", encoding="utf-8") as f:
+    import os
+    output_dir = os.environ.get("IANVS_EVAL_WORKSPACE", ".")
+    output_path = os.path.join(output_dir, "accuracy_results_model.json")
+    
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=4)
     
     return global_acc
@@ -143,7 +147,11 @@ def acc_global(y_true, y_pred):
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
     
-    with open("accuracy_results_global.json", "w", encoding="utf-8") as f:
+    import os
+    output_dir = os.environ.get("IANVS_EVAL_WORKSPACE", ".")
+    output_path = os.path.join(output_dir, "accuracy_results_global.json")
+    
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=4)
     
     return global_acc
@@ -204,7 +212,11 @@ def acc_local(y_true, y_pred):
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
     
-    with open("accuracy_results_local.json", "w", encoding="utf-8") as f:
+    import os
+    output_dir = os.environ.get("IANVS_EVAL_WORKSPACE", ".")
+    output_path = os.path.join(output_dir, "accuracy_results_local.json")
+    
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=4)
     
     return global_acc
@@ -265,7 +277,11 @@ def acc_other(y_true, y_pred):
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
     
-    with open("accuracy_results_other.json", "w", encoding="utf-8") as f:
+    import os
+    output_dir = os.environ.get("IANVS_EVAL_WORKSPACE", ".")
+    output_path = os.path.join(output_dir, "accuracy_results_other.json")
+    
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=4)
     
     return global_acc
